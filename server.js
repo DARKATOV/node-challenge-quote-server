@@ -19,6 +19,20 @@ app.get("/", function (request, response) {
 
 //START OF YOUR CODE...
 
+app.get("/quotes", function (request, response) {
+  data = quotes.map(quote => quote);
+  response.send(data);
+});
+
+
+app.get("/quotes/random", function (request, response) {
+  const data = quotes;
+  console.log(data);
+  let show = data[Math.floor(Math.random() * data.length)]; /* to pick random item */
+  response.send(show);
+});
+
+
 //...END OF YOUR CODE
 
 //You can use this function to pick one element at random from a given array
